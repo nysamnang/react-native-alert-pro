@@ -24,6 +24,7 @@ class AlertPro extends Component {
 
     this.onCancel = this.onCancel.bind(this);
     this.onConfirm = this.onConfirm.bind(this);
+    this.onClose = this.onClose.bind(this);
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
   }
@@ -52,12 +53,21 @@ class AlertPro extends Component {
     }
   }
 
+  onClose() {
+    if (typeof this.props.onClose === "function") {
+      this.props.onClose();
+    }
+  }
+
   open() {
     this.setState({ visible: true }, () => this.animatedConfirm());
   }
 
   close() {
-    this.setState({ visible: false }, () => this.springValue.setValue(0));
+    this.setState({ visible: false }, () => {
+      this.springValue.setValue(0);
+      this.onClose();
+    });
   }
 
   render() {
@@ -94,7 +104,7 @@ class AlertPro extends Component {
               customStyles.container
             ]}
           >
-            <TouchableOpacity activeOpacity={1} style={customStyles.content}>
+            <TouchableOpacity activeOpacity={1}>
               <View style={styles.content}>
                 <Text style={[styles.title, customStyles.title]}>{title}</Text>
                 {message ? (
@@ -148,6 +158,7 @@ AlertPro.propTypes = {
   textConfirm: PropTypes.string,
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
+  onClose: PropTypes.func,
   closeOnPressMask: PropTypes.bool
 };
 

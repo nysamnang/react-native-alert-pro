@@ -1,6 +1,6 @@
 {
   "name": "react-native-alert-pro",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Pro Version of React Native Alert (Android & iOS)",
   "main": "index.js",
   "scripts": {
@@ -8,24 +8,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NYSamnang/react-native-alert-pro.git"
+    "url": "git+https://github.com/nysamnang/react-native-alert-pro.git"
   },
   "keywords": [
-    "react-native",
+    "react-native-alert",
+    "sweet-alert",
+    "awesome-alert",
     "alert",
     "alert-pro",
+    "confirm",
     "dialog",
     "popup",
-    "confirm",
     "modal",
     "box"
   ],
   "author": "NY Samnang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NYSamnang/react-native-alert-pro/issues"
+    "url": "https://github.com/nysamnang/react-native-alert-pro/issues"
   },
-  "homepage": "https://github.com/NYSamnang/react-native-alert-pro#readme",
+  "homepage": "https://github.com/nysamnang/react-native-alert-pro#readme",
   "dependencies": {
     "prop-types": "^15.6.2"
   }

@@ -14,7 +14,7 @@
 
 |                                                    iOS                                                    |                                                  Android                                                  |
 | :-------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------: |
-| ![](https://raw.githubusercontent.com/NYSamnang/stock-images/master/react-native-alert-pro/RNALP-IOS.gif) | ![](https://raw.githubusercontent.com/NYSamnang/stock-images/master/react-native-alert-pro/RNALP-AOS.gif) |
+| ![](https://raw.githubusercontent.com/nysamnang/stock-images/master/react-native-alert-pro/RNALP-IOS.gif) | ![](https://raw.githubusercontent.com/nysamnang/stock-images/master/react-native-alert-pro/RNALP-AOS.gif) |
 
 ## Installation
 
@@ -129,6 +129,7 @@ export default Example;
 | customStyles     | object   | Custom style to AlertPro                                 | {}                         |
 | onCancel         | function | Event on Cancel button                                   |                            |
 | onConfirm        | function | Event on Confirm button                                  |                            |
+| onClose          | function | Callback function when AlertPro has closed               |                            |
 
 ### Available Custom Style
 
@@ -138,7 +139,6 @@ customStyles: {
   message: {...}, // AlertPro's message
   mask: {...}, // The empty space area
   container: {...}, // AlertPro container
-  content: {...}, // AlertPro content
   buttonCancel: {...}, // Cancel button
   buttonConfirm: {...}, // Confirm button
   textCancel: {...}, // Cancel button's Text
@@ -154,18 +154,18 @@ customStyles: {
 | open        | Open AlertPro  |
 | close       | Close AlertPro |
 
-### Note
+## Note
 
 Always set `ref` to `AlertPro` and call each method by using `this.AlertPro.methodName()` like example above.
 
-### Give me a Star
+## Give me a Star
 
 If you think this project is helpful just give me a ⭐️ Star is enough because i don't drink coffee :D
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/NYSamnang/react-native-alert-pro/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/nysamnang/react-native-alert-pro/blob/master/LICENSE) file for details
 
 ## Author
 
-Made with ❤️ by [NY Samnang](https://github.com/NYSamnang).
+Made with ❤️ by [NY Samnang](https://github.com/nysamnang).
