@@ -15,11 +15,7 @@ const SUPPORTED_ORIENTATIONS = [
 class AlertPro extends Component {
   constructor() {
     super();
-
-    this.state = {
-      visible: false
-    };
-
+    this.state = { visible: false };
     this.springValue = new Animated.Value(0);
 
     this.onCancel = this.onCancel.bind(this);
@@ -29,34 +25,19 @@ class AlertPro extends Component {
     this.close = this.close.bind(this);
   }
 
-  componentWillUnmount() {
-    this.springValue.setValue(0);
-  }
-
-  animatedConfirm() {
-    Animated.spring(this.springValue, {
-      toValue: 1,
-      speed: 15,
-      useNativeDriver: true
-    }).start();
-  }
-
   onCancel() {
-    if (typeof this.props.onCancel === "function") {
-      this.props.onCancel();
-    }
+    const { onCancel } = this.props;
+    if (typeof onCancel === "function") onCancel();
   }
 
   onConfirm() {
-    if (typeof this.props.onConfirm === "function") {
-      this.props.onConfirm();
-    }
+    const { onConfirm } = this.props;
+    if (typeof onConfirm === "function") onConfirm();
   }
 
   onClose() {
-    if (typeof this.props.onClose === "function") {
-      this.props.onClose();
-    }
+    const { onClose } = this.props;
+    if (typeof onClose === "function") onClose();
   }
 
   open() {
@@ -70,6 +51,14 @@ class AlertPro extends Component {
     });
   }
 
+  animatedConfirm() {
+    Animated.spring(this.springValue, {
+      toValue: 1,
+      speed: 15,
+      useNativeDriver: true
+    }).start();
+  }
+
   render() {
     const {
       title,
@@ -81,10 +70,13 @@ class AlertPro extends Component {
       customStyles,
       closeOnPressMask
     } = this.props;
+
+    const { visible } = this.state;
+
     return (
       <Modal
-        visible={this.state.visible}
-        transparent={true}
+        visible={visible}
+        transparent
         animationType="fade"
         supportedOrientations={SUPPORTED_ORIENTATIONS}
         onRequestClose={() => {}}
@@ -108,9 +100,7 @@ class AlertPro extends Component {
               <View style={styles.content}>
                 <Text style={[styles.title, customStyles.title]}>{title}</Text>
                 {message ? (
-                  <Text style={[styles.message, customStyles.message]}>
-                    {message}
-                  </Text>
+                  <Text style={[styles.message, customStyles.message]}>{message}</Text>
                 ) : null}
               </View>
 
@@ -118,15 +108,9 @@ class AlertPro extends Component {
                 {showCancel ? (
                   <TouchableOpacity
                     onPress={this.onCancel}
-                    style={[
-                      styles.button,
-                      styles.buttonCancel,
-                      customStyles.buttonCancel
-                    ]}
+                    style={[styles.button, styles.buttonCancel, customStyles.buttonCancel]}
                   >
-                    <Text style={[styles.textButton, customStyles.textCancel]}>
-                      {textCancel}
-                    </Text>
+                    <Text style={[styles.textButton, customStyles.textCancel]}>{textCancel}</Text>
                   </TouchableOpacity>
                 ) : null}
                 {showConfirm ? (
@@ -134,9 +118,7 @@ class AlertPro extends Component {
                     onPress={this.onConfirm}
                     style={[styles.button, customStyles.buttonConfirm]}
                   >
-                    <Text style={[styles.textButton, customStyles.textConfirm]}>
-                      {textConfirm}
-                    </Text>
+                    <Text style={[styles.textButton, customStyles.textConfirm]}>{textConfirm}</Text>
                   </TouchableOpacity>
                 ) : null}
               </View>
@@ -149,7 +131,7 @@ class AlertPro extends Component {
 }
 
 AlertPro.propTypes = {
-  customStyles: PropTypes.object,
+  customStyles: PropTypes.objectOf(PropTypes.object),
   title: PropTypes.string,
   message: PropTypes.string,
   showCancel: PropTypes.bool,
@@ -170,7 +152,10 @@ AlertPro.defaultProps = {
   showConfirm: true,
   textCancel: "No",
   textConfirm: "Yes",
-  closeOnPressMask: true
+  closeOnPressMask: true,
+  onCancel: null,
+  onConfirm: null,
+  onClose: null
 };
 
 export default AlertPro;
