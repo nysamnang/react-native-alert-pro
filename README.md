@@ -4,6 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/react-native-alert-pro.svg)
 ](//npmjs.com/package/react-native-alert-pro)
 [![Build Status](https://travis-ci.org/nysamnang/react-native-alert-pro.svg?branch=master)](https://travis-ci.org/nysamnang/react-native-alert-pro)
+![](https://badgen.net/codecov/c/github/tunnckoCoreLabs/gitcommit)
 
 - Super lightweight component
 - Smooth animation
