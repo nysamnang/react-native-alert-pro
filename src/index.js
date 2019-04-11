@@ -54,8 +54,7 @@ class AlertPro extends Component {
   animatedConfirm() {
     Animated.spring(this.springValue, {
       toValue: 1,
-      speed: 15,
-      useNativeDriver: true
+      speed: 15
     }).start();
   }
 
@@ -80,7 +79,6 @@ class AlertPro extends Component {
         animationType="fade"
         supportedOrientations={SUPPORTED_ORIENTATIONS}
         onRequestClose={() => {}}
-        onBackButtonPress={() => this.setState({ visible: false })}
       >
         <TouchableOpacity
           activeOpacity={1}
@@ -107,6 +105,7 @@ class AlertPro extends Component {
               <View style={styles.buttonContainer}>
                 {showCancel ? (
                   <TouchableOpacity
+                    testID="buttonCancel"
                     onPress={this.onCancel}
                     style={[styles.button, styles.buttonCancel, customStyles.buttonCancel]}
                   >
@@ -115,6 +114,7 @@ class AlertPro extends Component {
                 ) : null}
                 {showConfirm ? (
                   <TouchableOpacity
+                    testID="buttonConfirm"
                     onPress={this.onConfirm}
                     style={[styles.button, customStyles.buttonConfirm]}
                   >

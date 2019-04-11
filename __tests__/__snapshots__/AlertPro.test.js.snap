@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`React Native AlertPro Render should render correctly with given props 1`] = `ShallowWrapper {}`;
+
+exports[`React Native AlertPro Render should render correctly with no props 1`] = `ShallowWrapper {}`;

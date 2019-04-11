@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/react-native-alert-pro.svg)](//npmjs.com/package/react-native-alert-pro) [![npm downloads](https://img.shields.io/npm/dm/react-native-alert-pro.svg)
 ](//npmjs.com/package/react-native-alert-pro)
 
-- Super lightweight component (50 KB)
+- Super lightweight component
 - Smooth animation
 - Beautiful
 - Use method instead of state
