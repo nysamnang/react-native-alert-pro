@@ -1,7 +1,9 @@
 # react-native-alert-pro
 
-[![npm version](https://badge.fury.io/js/react-native-alert-pro.svg)](//npmjs.com/package/react-native-alert-pro) [![npm downloads](https://img.shields.io/npm/dm/react-native-alert-pro.svg)
+[![npm version](https://badge.fury.io/js/react-native-alert-pro.svg)](//npmjs.com/package/react-native-alert-pro)
+[![npm downloads](https://img.shields.io/npm/dm/react-native-alert-pro.svg)
 ](//npmjs.com/package/react-native-alert-pro)
+[![Build Status](https://travis-ci.org/nysamnang/react-native-alert-pro.svg?branch=master)](https://travis-ci.org/nysamnang/react-native-alert-pro)
 
 - Super lightweight component
 - Smooth animation
