@@ -1,4 +1,5 @@
 import React from "react";
+import { Modal } from "react-native";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import AlertPro from "../src";
@@ -37,7 +38,7 @@ describe("React Native AlertPro", () => {
     const onClose = jest.fn();
     const onCancel = jest.fn();
     const onConfirm = jest.fn();
-    beforeEach(() => {
+    beforeAll(() => {
       wrapper = shallow(<AlertPro onClose={onClose} onCancel={onCancel} onConfirm={onConfirm} />);
     });
 
@@ -64,6 +65,18 @@ describe("React Native AlertPro", () => {
     it("should onConfirm function called", () => {
       wrapper.findWhere(node => node.prop("testID") === "buttonConfirm").simulate("Press");
       expect(onConfirm).toHaveBeenCalled();
+    });
+
+    it("should onRequestClose called", () => {
+      wrapper
+        .find(Modal)
+        .props()
+        .onRequestClose();
+      expect(onClose).toHaveBeenCalled();
+    });
+
+    afterAll(done => {
+      done();
     });
   });
 });
