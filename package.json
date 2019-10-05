@@ -3,8 +3,9 @@
   "version": "1.1.0",
   "description": "The Pro Version of React Native Alert (Android & iOS)",
   "main": "index.js",
+  "typings": "index.d.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -17,10 +18,7 @@
     "alert",
     "alert-pro",
     "confirm",
-    "dialog",
-    "popup",
-    "modal",
-    "box"
+    "dialog"
   ],
   "author": "NY Samnang",
   "license": "MIT",
