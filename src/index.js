@@ -20,7 +20,6 @@ class AlertPro extends Component {
 
     this.onCancel = this.onCancel.bind(this);
     this.onConfirm = this.onConfirm.bind(this);
-    this.onClose = this.onClose.bind(this);
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
   }
@@ -35,27 +34,25 @@ class AlertPro extends Component {
     if (typeof onConfirm === "function") onConfirm();
   }
 
-  onClose() {
-    const { onClose } = this.props;
-    if (typeof onClose === "function") onClose();
-  }
-
   open() {
-    this.setState({ visible: true }, () => this.animatedConfirm());
-  }
-
-  close() {
-    this.setState({ visible: false }, () => {
-      this.springValue.setValue(0);
-      this.onClose();
+    const { useNativeDriver } = this.props;
+    this.setState({ visible: true }, () => {
+      Animated.spring(this.springValue, {
+        toValue: 1,
+        speed: 35,
+        bounciness: 7,
+        velocity: 15,
+        useNativeDriver
+      }).start();
     });
   }
 
-  animatedConfirm() {
-    Animated.spring(this.springValue, {
-      toValue: 1,
-      speed: 15
-    }).start();
+  close() {
+    const { onClose } = this.props;
+    this.setState({ visible: false }, () => {
+      this.springValue.setValue(0);
+      if (typeof onClose === "function") onClose();
+    });
   }
 
   render() {
@@ -67,7 +64,8 @@ class AlertPro extends Component {
       textCancel,
       textConfirm,
       customStyles,
-      closeOnPressMask
+      closeOnPressMask,
+      closeOnPressBack
     } = this.props;
 
     const { visible } = this.state;
@@ -76,9 +74,9 @@ class AlertPro extends Component {
       <Modal
         visible={visible}
         transparent
-        animationType="fade"
+        animationType="none"
         supportedOrientations={SUPPORTED_ORIENTATIONS}
-        onRequestClose={() => {}}
+        onRequestClose={closeOnPressBack ? this.close : null}
       >
         <TouchableOpacity
           activeOpacity={1}
@@ -141,7 +139,9 @@ AlertPro.propTypes = {
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
   onClose: PropTypes.func,
-  closeOnPressMask: PropTypes.bool
+  closeOnPressMask: PropTypes.bool,
+  closeOnPressBack: PropTypes.bool,
+  useNativeDriver: PropTypes.bool
 };
 
 AlertPro.defaultProps = {
@@ -153,6 +153,8 @@ AlertPro.defaultProps = {
   textCancel: "No",
   textConfirm: "Yes",
   closeOnPressMask: true,
+  closeOnPressBack: true,
+  useNativeDriver: false,
   onCancel: null,
   onConfirm: null,
   onClose: null

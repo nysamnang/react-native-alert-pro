@@ -10,6 +10,7 @@ declare module "react-native-alert-pro" {
     textCancel?: string;
     textConfirm?: string;
     closeOnPressMask?: boolean;
+    closeOnPressBack?: boolean;
     customStyles?: {
       title?: StyleProp<TextStyle>;
       message?: StyleProp<TextStyle>;
