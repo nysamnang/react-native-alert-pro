@@ -1,6 +1,6 @@
 {
   "name": "react-native-alert-pro",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "The Pro Version of React Native Alert (Android & iOS)",
   "main": "index.js",
   "typings": "index.d.ts",
