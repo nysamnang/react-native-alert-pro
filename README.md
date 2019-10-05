@@ -118,6 +118,23 @@ const styles = StyleSheet.create({
 export default Example;
 ```
 
+### Dynamic AlertPro
+
+```jsx
+renderItem = (item, index) => (
+    <View>
+      <Button title=`OPEN AlertPro-${index}` onPress={() => this[AlertPro + index].open()} />
+      <AlertPro
+        ref={ref => {
+          this[AlertPro + index] = ref;
+        }}
+        title=`AlertPro-${index}`
+        onConfirm={() => () => this[AlertPro + index].close()}
+      />
+    </View>
+  );
+```
+
 ## Props
 
 | Prop             | Type     | Description                                              | Default                    |
@@ -129,10 +146,12 @@ export default Example;
 | textCancel       | string   | Text display on Cancel button                            | "No"                       |
 | textConfirm      | string   | Text display on Confirm button                           | "Yes"                      |
 | closeOnPressMask | boolean  | Close AlertPro when press on mask (The empty space area) | true                       |
+| closeOnPressBack | boolean  | Press back android to close Bottom Sheet (Android only)  | true                       |
+| useNativeDriver  | boolean  | Allowing native code to perform the animation            | false                      |
 | customStyles     | object   | Custom style to AlertPro                                 | {}                         |
-| onCancel         | function | Event on Cancel button                                   |                            |
-| onConfirm        | function | Event on Confirm button                                  |                            |
-| onClose          | function | Callback function when AlertPro has closed               |                            |
+| onCancel         | function | Event on Cancel button                                   | null                       |
+| onConfirm        | function | Event on Confirm button                                  | null                       |
+| onClose          | function | Callback function when AlertPro has closed               | null                       |
 
 ### Available Custom Style
 
