@@ -11,6 +11,7 @@ declare module "react-native-alert-pro" {
     textConfirm?: string;
     closeOnPressMask?: boolean;
     closeOnPressBack?: boolean;
+    useNativeDriver?: boolean;
     customStyles?: {
       title?: StyleProp<TextStyle>;
       message?: StyleProp<TextStyle>;
