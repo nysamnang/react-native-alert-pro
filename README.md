@@ -123,13 +123,13 @@ export default Example;
 ```jsx
 renderItem = (item, index) => (
     <View>
-      <Button title=`OPEN AlertPro-${index}` onPress={() => this[AlertPro + index].open()} />
+      <Button title={`OPEN AlertPro-${index}`} onPress={() => this[AlertPro + index].open()} />
       <AlertPro
         ref={ref => {
           this[AlertPro + index] = ref;
         }}
-        title=`AlertPro-${index}`
-        onConfirm={() => () => this[AlertPro + index].close()}
+        title={`AlertPro-${index}`}
+        onConfirm={() => this[AlertPro + index].close()}
       />
     </View>
   );
