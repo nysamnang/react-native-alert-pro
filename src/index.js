@@ -99,7 +99,7 @@ class AlertPro extends Component {
                   <Text style={[styles.message, customStyles.message]}>{message}</Text>
                 ) : null}
               </View>
-
+              {this.props.children}
               <View style={styles.buttonContainer}>
                 {showCancel ? (
                   <TouchableOpacity
